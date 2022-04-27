@@ -10,6 +10,7 @@ const PORT = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(upload());
+app.use(express.static('static'));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/html/index.html");
@@ -21,8 +22,11 @@ app.post("/", (req, res) => {
   const arrayFile = filename.split('.');
   const pathFile = arrayFile.pop();
   const fileName = nanoid() + "." + pathFile;
-  console.log(pathFile);
-  console.log(fileName);
+
+  file.mv('./static/imgs/'+fileName, function(err){
+    err && res.send(err);
+    res.send(`Image uplod on https://basic-API-in-TypeScript.filipos01.repl.co/imgs/${fileName}`)
+  });
   
   console.log(req.files);
 });

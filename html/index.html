@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <title>Img Uploader!</title>
+    <style>
+      form{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+      }
+      .sub{
+        width: 7rem;
+        height: 2.5rem;
+      }
+    </style>
   </head>
   <body>
     <form method="post" action="/" enctype="multipart/form-data">
       <input type="file" name="file"/>
-      <input type="submit" value="Upload"/>
+      <input class="sub" type="submit" value="Upload"/>
     </form>
   </body>
 </html>
