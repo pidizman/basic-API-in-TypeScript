@@ -25,7 +25,7 @@ app.post("/", (req, res) => {
 
   file.mv('./static/imgs/'+fileName, function(err){
     err && res.send(err);
-    res.send(`Image uplod on https://basic-API-in-TypeScript.filipos01.repl.co/imgs/${fileName}`)
+    res.send(`Image upload on https://localhost:${port}/imgs/${fileName}`)
   });
   
   console.log(req.files);
