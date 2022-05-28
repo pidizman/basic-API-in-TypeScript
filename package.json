@@ -1,8 +1,13 @@
 {
   "name": "basic-API-in-TypeScript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pidizman/basic-API-in-TypeScript",
+  "author": "Filipos01",
+  "license": "MIT",
   "scripts": {
-    "start": "ts-node index.ts",
-    "dev": "ts-node-dev --respawn --transpile-only index.ts"
+    "start": "node index.js",
+    "build": "tsc"
   },
   "dependencies": {
     "@types/body-parser": "^1.19.2",
@@ -13,7 +18,9 @@
     "express-fileupload": "^1.3.1",
     "fs": "^0.0.1-security",
     "nanoid": "^3.3.3",
-    "ts-node": "^10.7.0",
-    "ts-node-dev": "^1.1.8"
+    "tsc": "^2.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.2"
   }
 }
