@@ -5,7 +5,6 @@ import { nanoid } from "nanoid";
 import upload from "express-fileupload";
 
 const app = express();
-const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -17,7 +16,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  const file = req.files.file;
+  const isArray = Array.isArray(req.files.file);
+  const file = isArray ? req.files.file[0]: req.files.file;
   const filename = file.name;
   const arrayFile = filename.split('.');
   const pathFile = arrayFile.pop();
@@ -25,12 +25,12 @@ app.post("/", (req, res) => {
 
   file.mv('./static/imgs/'+fileName, function(err){
     err && res.send(err);
-    res.send(`Image upload on https://localhost:${port}/imgs/${fileName}`)
+    res.send(`Image upload on https://localhost:3000/imgs/${fileName}`)
   });
   
   console.log(req.files);
 });
 
-app.listen(PORT, () => {
+app.listen(3000, () => {
   console.log("Server ready!");
 });
