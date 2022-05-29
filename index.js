@@ -28,6 +28,6 @@ app.post("/", (req, res) => {
     });
     console.log(req.files);
 });
-app.listen(3000, () => {
+app.listen(8080, () => {
     console.log("Server ready!");
 });
